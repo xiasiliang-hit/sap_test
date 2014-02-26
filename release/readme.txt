@@ -41,12 +41,12 @@
 		$java -cp sap.jar com.sap.XMLTransformer  C://path/sample.xml
 
 		if the xml file is well formatted, then the
-		outxml.html is generated as the human readable representation 
+		outxml.html is generated as human readable representation 
 				
 --known bugs--
 		no bugs have been reported
 
 --contact--
-		if you encount any bug or have other issues with
+		if you encount any bugs or have other issues with
 		this tool, please contact:
 		xiaisliang.str@gmail.com 
