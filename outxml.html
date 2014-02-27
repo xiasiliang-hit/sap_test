@@ -1,0 +1,69 @@
+<html xmlns:spr="http://www.sap.com/spr">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+					.caption {font-size: 20px;}
+					table, th, td
+					{
+					border: 1px solid #CCC;
+					}
+				</style>
+</head>
+<body>
+<table>
+<h1 class="caption">Structured Attributes
+					</h1>
+<tr>
+<td rowspan="8">
+							BackendProcessingFailedException
+						</td>
+</tr>
+<tr>
+<td>IsFatalException</td><td>True</td>
+</tr>
+<tr>
+<td>TransactionID</td><td>4DDD8870D3F316B5E1000000AC133534</td>
+</tr>
+<tr>
+<td>SessionState</td><td>Established</td>
+</tr>
+<tr>
+<td>Message</td><td>Eine Ausnahme vom Typ SAP.BYD.LS.UI.Core.API.Connectivity.BackendProcessingFailedException wurde ausgel&ouml;st. Transaction Id = 4DDD8870D3F316B5E1000000AC133534 Session State = Established Log Id =  </td>
+</tr>
+<tr>
+<td>Data</td><td>System.Collections.ListDictionaryInternal</td>
+</tr>
+<tr>
+<td>InnerException</td><td>System.Net.WebException: [HttpWebRequest_WebException_RemoteServer] Argumente: NotFound Debuggingressourcen-Zeichenfolgen sind nicht verf&uuml;gbar. Oft enthalten der Schl&uuml;ssel und die Argumente gen&uuml;gend Informationen zur Diagnose des Problems. Weitere Informationen erhalten Sie unter http://go.microsoft.com/fwlink/?linkid=106663&amp;Version=4.0.60310.0&amp;File=System.Windows.dll&amp;Key=HttpWebRequest_WebException_RemoteServer ---&gt; System.Net.WebException: [HttpWebRequest_WebException_RemoteServer] Argumente: NotFound Debuggingressourcen-Zeichenfolgen sind nicht verf&uuml;gbar. Oft enthalten der Schl&uuml;ssel und die Argumente gen&uuml;gend Informationen zur Diagnose des Problems. Weitere Informationen erhalten Sie unter http://go.microsoft.com/fwlink/?linkid=106663&amp;Version=4.0.60310.0&amp;File=System.Windows.dll&amp;Key=HttpWebRequest_WebException_RemoteServer    bei System.Net.Browser.BrowserHttpWebRequest.InternalEndGetResponse(IAsyncResult asyncResult)    bei System.Net.Browser.BrowserHttpWebRequest.&lt;&gt;c__DisplayClass5.&lt;EndGetResponse&gt;b__4(Object sendState)    bei System.Net.Browser.AsyncHelper.&lt;&gt;c__DisplayClass4.&lt;BeginOnUI&gt;b__1(Object sendState)    --- Ende der internen Ausnahmestapel&uuml;berwachung ---    bei System.Net.Browser.AsyncHelper.BeginOnUI(SendOrPostCallback beginMethod, Object state)    bei System.Net.Browser.BrowserHttpWebRequest.EndGetResponse(IAsyncResult asyncResult)    bei SAP.BYD.LS.UI.Core.Connector.BulkConnector.Io.BackendAdapter.HttpWebRequest_BeginGetResponse_Callback(IAsyncResult asyncResult)</td>
+</tr>
+<tr>
+<td>StackTrace</td><td>   bei SAP.BYD.LS.UI.Core.Connector.BulkConnector.Io.BackendAdapter.HttpWebRequest_BeginGetResponse_Callback(IAsyncResult asyncResult)</td>
+</tr>
+</table>
+<table>
+<h1 class="caption">Sub-Check Results
+					</h1>
+<tr>
+<th>Status</th><th>Label</th><th>Summary</th>
+</tr>
+<tr>
+<td>Info</td><td>
+								Level 0: 
+								
+								Type SAP.BYD.LS.UI.Core.API.Connectivity.BackendProcessingFailedException</td><td>Eine Ausnahme vom Typ SAP.BYD.LS.UI.Core.API.Connectivity.BackendProcessingFailedException wurde ausgel&ouml;st. Transaction Id = 4DDD8870D3F316B5E1000000AC133534 Session State = Established Log Id =  </td>
+</tr>
+<tr>
+<td>Info</td><td>
+								Level 1: 
+								
+								Type System.Net.WebException</td><td>[HttpWebRequest_WebException_RemoteServer] Argumente: NotFound Debuggingressourcen-Zeichenfolgen sind nicht verf&uuml;gbar. Oft enthalten der Schl&uuml;ssel und die Argumente gen&uuml;gend Informationen zur Diagnose des Problems. Weitere Informationen erhalten Sie unter http://go.microsoft.com/fwlink/?linkid=106663&amp;Version=4.0.60310.0&amp;File=System.Windows.dll&amp;Key=HttpWebRequest_WebException_RemoteServer</td>
+</tr>
+<tr>
+<td>Info</td><td>
+								Level 2: 
+								
+								Type System.Net.WebException</td><td>[HttpWebRequest_WebException_RemoteServer] Argumente: NotFound Debuggingressourcen-Zeichenfolgen sind nicht verf&uuml;gbar. Oft enthalten der Schl&uuml;ssel und die Argumente gen&uuml;gend Informationen zur Diagnose des Problems. Weitere Informationen erhalten Sie unter http://go.microsoft.com/fwlink/?linkid=106663&amp;Version=4.0.60310.0&amp;File=System.Windows.dll&amp;Key=HttpWebRequest_WebException_RemoteServer</td>
+</tr>
+</table>
+</body>
+</html>
