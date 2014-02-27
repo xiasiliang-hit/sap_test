@@ -9,6 +9,7 @@
 package com.sap;
 
 import java.io.*;
+import java.net.URL;
 
 import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
@@ -22,9 +23,19 @@ public class XMLTransformer
 	private void transform()
 	{
 
+		
+		InputStream strea =Thread.currentThread().getContextClassLoader().getResourceAsStream(xsl);
+		
 		Source xmlInput = new StreamSource(new File(temp));
-		Source xslInput = new StreamSource(new File(xsl));
+		Source xslInput = new StreamSource(strea);
+		
+		//String xslRelativePath =Thread.currentThread().getContextClassLoader().getResource(xsl).getPath();// getResourceAsStream(xsl);
 
+		if (DEBUG_MODE)
+		{
+			xslInput = new StreamSource(new File(xsl));
+		}
+		
 		try
 		{
 			Result xmlOutput = new StreamResult(new File(outStr));
@@ -37,22 +48,19 @@ public class XMLTransformer
 		}
 		catch (TransformerException e)
 		{
-			new File(outStr).delete();
+			new File(outStr).delete();  //output html file is empty
 			System.out.println("EeceptionCode:1, XML file not well formated");
-			
-
 		}
 		catch (Exception e)
 		{
-			new File(outStr).delete();
+			new File(outStr).delete();  //output html file is empty
 			System.out.println("EeceptionCode:2, Unknown exception");
-			
 		}
 		finally
 		{
+			//delete temporary xml file then exit
 			new File(temp).delete();
 			terminate();
-			
 		}
 	}
 
@@ -70,7 +78,6 @@ public class XMLTransformer
 			while (line != null)
 			{
 				sb.append(line);
-				// sb.append(System.lineSeparator());
 				line = br.readLine();
 			}
 			br.close();
@@ -100,7 +107,7 @@ public class XMLTransformer
 		System.out.println("ExceptionCode:0, XML file not found");
 		System.out
 				.println("Please run applicaiton with parameter [your xml file name with path]\n"
-						+ "eg: /data/sample.xml or ./tmp/sample.xml");
+						+ "eg: /data/sample.xml or ./sample.xml");
 		terminate();
 	}
 
@@ -109,14 +116,17 @@ public class XMLTransformer
 	{
 		if (DEBUG_MODE)
 		{
-			xml = "style/2.xml"; //set the path without parameter in debug mode
+			xml = "test/2.xml"; //set the path without parameter in debug mode
+			
 		}
 		else
 		{
 			try
-			{
+			{				
 				xml = args[0];
-			} catch (java.lang.ArrayIndexOutOfBoundsException e)
+				
+			}
+			catch (java.lang.ArrayIndexOutOfBoundsException e)
 			{
 				dealNoFileException();
 			}
@@ -134,10 +144,10 @@ public class XMLTransformer
 		System.exit(0);
 	}
 
-	static private String xml = "style/2.xml";
-	private String xsl = "style/sap_style.xsl";
+	static private String xml;// = "./test/2.xml";
+	static private String xsl = "sap_style.xsl";
 	private String temp = "temp.xml";
 	private String outStr = "outxml.html";
 
-	public static final boolean DEBUG_MODE = false;
+	static private final boolean DEBUG_MODE = false;
 }
