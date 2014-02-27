@@ -20,8 +20,8 @@
 		formatting, reprots error if the XML file is not
 		well formatted
 
-		./sap_style.xsl:
-		xml stylesheet for formmating xml files into readable html with structure tables
+		./sap.jar/sap_style.xsl:
+		xml stylesheet for formmating xml files into readable html with structured tables
 		
 --installation--
 		git clone https://xiasiliang-hit/sap_test
@@ -35,14 +35,17 @@
 
 		eg:
 		under *inux with shell
-		$java -cp sap.jar com.sap.XMLTransformer ~/path/sample.xml
+		$java -cp sap.jar com.sap.XMLTransformer ./test/sample.xml
 
 		under windows
-		$java -cp sap.jar com.sap.XMLTransformer  C://path/sample.xml
+		$java -cp sap.jar com.sap.XMLTransformer  C:\path\sample.xml
 
 		if the xml file is well formatted, then the
 		outxml.html is generated as human readable representation 
-				
+
+		run a a browser to check the result
+		$firefox outxml.html
+		
 --known bugs--
 		no bugs have been reported
 
