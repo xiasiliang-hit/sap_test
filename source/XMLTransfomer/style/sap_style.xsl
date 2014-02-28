@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- in debug mode, it is from eclipse root
+  in release mode, it is packed in jar root -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:spr="http://www.sap.com/spr">
 	<xsl:template match="/">

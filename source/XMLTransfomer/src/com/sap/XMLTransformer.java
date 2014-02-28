@@ -22,20 +22,19 @@ public class XMLTransformer
 
 	private void transform()
 	{
-
-		
-		InputStream strea =Thread.currentThread().getContextClassLoader().getResourceAsStream(xsl);
-		
 		Source xmlInput = new StreamSource(new File(temp));
+		//Source xslInput = new StreamSource(new File(xsl));
+		
+		
+		//runtime path mapping
+		InputStream strea =Thread.currentThread().getContextClassLoader().getResourceAsStream(xsl);
 		Source xslInput = new StreamSource(strea);
 		
-		//String xslRelativePath =Thread.currentThread().getContextClassLoader().getResource(xsl).getPath();// getResourceAsStream(xsl);
-
 		if (DEBUG_MODE)
 		{
 			xslInput = new StreamSource(new File(xsl));
 		}
-		
+
 		try
 		{
 			Result xmlOutput = new StreamResult(new File(outStr));
@@ -44,7 +43,7 @@ public class XMLTransformer
 					.newTransformer(xslInput);
 			transformer.transform(xmlInput, xmlOutput);
 
-			System.out.println(outStr + " has been generated successfully！");
+			System.out.println(outStr + " has been generated successfully!");
 		}
 		catch (TransformerException e)
 		{
@@ -101,7 +100,7 @@ public class XMLTransformer
 		{}
 	}
 
-	//deal with no file exception
+	//deal with no file path exception
 	static private void dealNoFileException()
 	{
 		System.out.println("ExceptionCode:0, XML file not found");
@@ -116,15 +115,14 @@ public class XMLTransformer
 	{
 		if (DEBUG_MODE)
 		{
-			xml = "test/2.xml"; //set the path without parameter in debug mode
-			
+			xml = "test/2.xml"; //set the path in debug mode
 		}
 		else
 		{
 			try
 			{				
-				xml = args[0];
-				
+				xml = args[0];	
+				//System.out.println("xml path:" + xml);
 			}
 			catch (java.lang.ArrayIndexOutOfBoundsException e)
 			{
@@ -144,10 +142,10 @@ public class XMLTransformer
 		System.exit(0);
 	}
 
-	static private String xml;// = "./test/2.xml";
-	static private String xsl = "sap_style.xsl";
+	static private String xml;  // = "./test/2.xml";
+	static private String xsl = "style/sap_style.xsl";
 	private String temp = "temp.xml";
 	private String outStr = "outxml.html";
 
-	static private final boolean DEBUG_MODE = false;
+	static private final boolean DEBUG_MODE = true;
 }
